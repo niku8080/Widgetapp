@@ -1,43 +1,56 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MainApp());
 }
+
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
-
   @override
   State<MainApp> createState() => _MainAppState();
 }
 
 class _MainAppState extends State<MainApp> {
-  TextEditingController nameController = TextEditingController();
-
-  String? myName;
-  List<String> playerList = [];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(  
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(  
-        appBar: AppBar(  
-          title: const Text("Aspect Ratio Demo",
-          style: TextStyle( 
-            fontSize: 30,
-          ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            "TextField Demo",
+            style: TextStyle(
+              fontSize: 30,
+            ),
           ),
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        body: Center(
-          child: Container(  
-            height: 300,
-            width: 300,
-            color: Colors.amber,
-            child: Image.network("https://tse3.mm.bing.net/th?id=OIP.nyLAzWYdvc-wb9ntq1cU7QHaHa&pid=Api&P=0&h=220"),
-          ),
+        body: const Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: TextField(
+                style: const TextStyle(
+                  fontSize: 30,
+                ),
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Enter Name",
+                  hintStyle: TextStyle(
+                    fontSize: 25,
+                    color: Colors.grey,
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            )
+          ],
         ),
-      )
+      ),
     );
   }
 }
